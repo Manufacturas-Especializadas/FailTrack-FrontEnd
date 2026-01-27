@@ -6,7 +6,7 @@ export const Home = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl w-full">
         <div className="mb-10">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-900 uppercase">
             Portal de Operaciones
           </h1>
           <p className="text-gray-500 mt-2">
