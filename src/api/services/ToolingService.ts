@@ -9,9 +9,14 @@ interface Response {
 
 class ToolingService {
   private createEndpoint = API_CONFIG.endpoints.tooling.create;
+  private updateEndpoint = API_CONFIG.endpoints.tooling.update;
 
   async create(formData: Tooling): Promise<Response> {
     return apiClient.post<Response>(this.createEndpoint, formData);
+  }
+
+  async update(formData: Tooling, id: number): Promise<Response> {
+    return apiClient.put<Response>(`${this.updateEndpoint}${id}`, formData);
   }
 }
 
