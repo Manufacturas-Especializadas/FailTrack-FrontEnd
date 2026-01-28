@@ -36,7 +36,6 @@ export const NavCard: React.FC<NavCardProps> = ({
   return (
     <a
       href={path}
-      target="_blank"
       rel="noopener noreferrer"
       className={`
         group relative flex flex-col p-6 rounded-2xl
