@@ -16,6 +16,7 @@ export const API_CONFIG = {
     },
     tooling: {
       create: "/api/Tooling/Create",
+      update: "/api/Tooling/Update/",
     },
     generalList: {
       getStatus: "/api/GeneralList/GetStatus",
