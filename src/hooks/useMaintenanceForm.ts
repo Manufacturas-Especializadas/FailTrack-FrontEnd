@@ -20,6 +20,7 @@ const initialFormData: Maintenance = {
   faultDescription: "",
   idLine: 0,
   idMachine: 0,
+  idStatus: 1,
   updatedAt: "",
 };
 
@@ -43,6 +44,7 @@ export const useMaintenanceForm = (
             faultDescription: response.faultDescription,
             idLine: response.idLine,
             idMachine: response.idMachine,
+            idStatus: response.idStatus,
             updatedAt: response.updatedAt,
           });
         } catch (err: any) {
@@ -107,10 +109,14 @@ export const useMaintenanceForm = (
       try {
         const payload = { ...formData };
 
+        delete (payload as any).updatedAt;
+
+        payload.idLine = Number(payload.idLine);
+        payload.idMachine = Number(payload.idMachine);
+        payload.idStatus = Number(payload.idStatus);
+
         if (!editId) {
-          delete (payload as any).updatedAt;
-        } else {
-          payload.updatedAt = new Date().toISOString();
+          payload.idStatus = 1;
         }
 
         let response;
