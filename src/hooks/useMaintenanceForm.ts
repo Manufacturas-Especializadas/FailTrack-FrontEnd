@@ -132,10 +132,6 @@ export const useMaintenanceForm = (
 
           if (!editId) resetForm();
           if (onSuccess) onSuccess();
-
-          setTimeout(() => {
-            navigate("/");
-          }, 5000);
         }
       } catch (err: any) {
         toast.dismiss(loadingToast);

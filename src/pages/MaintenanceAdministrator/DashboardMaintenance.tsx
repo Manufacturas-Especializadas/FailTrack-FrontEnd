@@ -4,6 +4,7 @@ import { Activity, LayoutGrid } from "lucide-react";
 import { useCurrentTime } from "../../hooks/useCurrentTime";
 import { useState } from "react";
 import { EditTicketModal } from "../../components/EditTicketModal/EditTicketModal";
+import { Toaster } from "react-hot-toast";
 
 export const DashboardMaintenance = () => {
   const { tickets, loading, refresh } = useTickets();
@@ -30,6 +31,40 @@ export const DashboardMaintenance = () => {
 
   return (
     <div className="h-screen flex flex-col bg-gray-100 overflow-hidden">
+      <Toaster
+        toastOptions={{
+          className: "",
+          style: {
+            background: "#363636",
+            color: "#fff",
+            zIndex: 9999,
+          },
+          success: {
+            duration: 10000,
+            position: "top-right",
+            style: {
+              background: "#10B981",
+              color: "#fff",
+            },
+          },
+          error: {
+            duration: 5000,
+            position: "top-right",
+            style: {
+              background: "#EF4444",
+              color: "#fff",
+            },
+          },
+          loading: {
+            duration: Infinity,
+            position: "top-right",
+            style: {
+              background: "#3B82F6",
+              color: "#fff",
+            },
+          },
+        }}
+      />
       <header className="bg-[#0099cc] text-white shadow-sm z-10 shrink-0">
         <div className="px-6 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
