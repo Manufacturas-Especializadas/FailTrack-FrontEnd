@@ -25,7 +25,7 @@ export const Home = () => {
 
           <NavCard
             title="Herramentales"
-            description="Reporte de fallas de herramentales"
+            description="Reporte de problemas de herramentales"
             path="/herramentales"
             icon={Hammer}
             variant="orange"
