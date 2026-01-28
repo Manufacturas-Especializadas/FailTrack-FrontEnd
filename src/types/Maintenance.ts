@@ -3,5 +3,6 @@ export interface Maintenance {
   faultDescription: string;
   idLine: number;
   idMachine: number;
+  idStatus: number;
   updatedAt: string;
 }
