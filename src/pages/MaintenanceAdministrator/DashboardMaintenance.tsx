@@ -2,11 +2,31 @@ import { useTickets } from "../../hooks/useTickets";
 import { StatusBoard } from "../../components/StatusBoard/StatusBoard";
 import { Activity, LayoutGrid } from "lucide-react";
 import { useCurrentTime } from "../../hooks/useCurrentTime";
+import { useState } from "react";
+import { EditTicketModal } from "../../components/EditTicketModal/EditTicketModal";
 
 export const DashboardMaintenance = () => {
-  const { tickets, loading } = useTickets();
+  const { tickets, loading, refresh } = useTickets();
 
   const currentTime = useCurrentTime();
+
+  const [selectedTicketId, setSelectedTicketId] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCardClick = (ticketId: number) => {
+    setSelectedTicketId(ticketId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedTicketId(null);
+  };
+
+  const handleSuccess = () => {
+    refresh();
+    handleCloseModal();
+  };
 
   return (
     <div className="h-screen flex flex-col bg-gray-100 overflow-hidden">
@@ -62,9 +82,18 @@ export const DashboardMaintenance = () => {
             <Activity className="animate-spin" /> Cargando datos...
           </div>
         ) : (
-          <StatusBoard tickets={tickets} />
+          <StatusBoard tickets={tickets} onCardClick={handleCardClick} />
         )}
       </main>
+
+      {isModalOpen && (
+        <EditTicketModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          ticketId={selectedTicketId}
+          onSuccess={handleSuccess}
+        />
+      )}
     </div>
   );
 };
