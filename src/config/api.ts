@@ -14,6 +14,7 @@ export const API_CONFIG = {
       create: "/api/Maintenance/Create",
       update: "/api/Maintenance/Update/",
     },
+    tooling: {},
     generalList: {
       getStatus: "/api/GeneralList/GetStatus",
       getLines: "/api/GeneralList/GetLines",
