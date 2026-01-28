@@ -3,6 +3,7 @@ import { MaintenanceIndex } from "../pages/Maintenance/MaintenanceIndex";
 import { Home } from "../pages/Home/Home";
 import { DashboardMaintenance } from "../pages/MaintenanceAdministrator/DashboardMaintenance";
 import { ToolingIndex } from "../pages/Tooling/ToolingIndex";
+import { DasboardTooling } from "../pages/ToolingAdministrator/DasboardTooling";
 
 export const MyRoutes = () => {
   return (
@@ -16,6 +17,8 @@ export const MyRoutes = () => {
       />
 
       <Route path="/herramentales" element={<ToolingIndex />} />
+
+      <Route path="/dasboard-tooling-admin" element={<DasboardTooling />} />
     </Routes>
   );
 };
