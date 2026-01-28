@@ -8,8 +8,13 @@ interface Response {
 }
 
 class ToolingService {
+  private getToolingByIdEndpoint = API_CONFIG.endpoints.tooling.getToolingById;
   private createEndpoint = API_CONFIG.endpoints.tooling.create;
   private updateEndpoint = API_CONFIG.endpoints.tooling.update;
+
+  async getToolingById(id: number): Promise<Tooling> {
+    return apiClient.get(`${this.getToolingByIdEndpoint}${id}`);
+  }
 
   async create(formData: Tooling): Promise<Response> {
     return apiClient.post<Response>(this.createEndpoint, formData);
