@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logomesa.png";
 
 export const Navbar = () => {
@@ -9,9 +10,11 @@ export const Navbar = () => {
             <div className="flex items-center hover:cursor-pointer">
               <img src={Logo} alt="MESA" className="h-10 w-auto lg:h-12" />
               <div className="ml-3">
-                <h1 className="text-xl lg:text-2xl font-bold text-white uppercase">
-                  FailTrack
-                </h1>
+                <Link to="/">
+                  <h1 className="text-xl lg:text-2xl font-bold text-white uppercase">
+                    FailTrack
+                  </h1>
+                </Link>
               </div>
             </div>
           </div>

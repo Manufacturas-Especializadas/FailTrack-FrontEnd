@@ -14,6 +14,12 @@ export const API_CONFIG = {
       create: "/api/Maintenance/Create",
       update: "/api/Maintenance/Update/",
     },
+    tooling: {
+      getToolingById: "/api/Tooling/GetTooling/",
+      getToolingList: "/api/Tooling/GetToolingList",
+      create: "/api/Tooling/Create",
+      update: "/api/Tooling/Update/",
+    },
     generalList: {
       getStatus: "/api/GeneralList/GetStatus",
       getLines: "/api/GeneralList/GetLines",
