@@ -9,6 +9,7 @@ export const API_CONFIG = {
   hubUrl: `${API_BASE_URL.replace("/api", "")}/machineHub`,
   endpoints: {
     maintenance: {
+      getMaintenanceList: "/api/Maintenance/GetMaintenanceList",
       getMaintenanceById: "/api/Maintenance/GetMaintenanceById/",
       create: "/api/Maintenance/Create",
       update: "/api/Maintenance/Update/",
