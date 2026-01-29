@@ -12,6 +12,7 @@ export const API_CONFIG = {
       getMaintenanceList: "/api/Maintenance/GetMaintenanceList",
       getMaintenanceById: "/api/Maintenance/GetMaintenanceById/",
       getAvailableMonthlyReports: "/api/Maintenance/GetAvailableMonthlyReports",
+      downloadMonthlyReport: "/api/Maintenance/DownloadMonthlyReport",
       create: "/api/Maintenance/Create",
       update: "/api/Maintenance/Update/",
     },
