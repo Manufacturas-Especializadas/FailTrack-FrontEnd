@@ -1,5 +1,5 @@
 import React from "react";
-import { type LucideIcon, ExternalLink } from "lucide-react";
+import { type LucideIcon, ArrowUpRight } from "lucide-react";
 
 interface NavCardProps {
   title: string;
@@ -18,16 +18,18 @@ export const NavCard: React.FC<NavCardProps> = ({
 }) => {
   const styles = {
     blue: {
-      bg: "bg-white hover:border-blue-500/30",
-      iconContainer:
-        "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
+      hoverBorder: "hover:border-blue-500",
+      iconBg: "bg-blue-50 group-hover:bg-blue-600",
+      iconColor: "text-blue-600 group-hover:text-white",
       title: "group-hover:text-blue-700",
+      shadow: "hover:shadow-blue-100",
     },
     orange: {
-      bg: "bg-white hover:border-orange-500/30",
-      iconContainer:
-        "bg-orange-50 text-orange-600 group-hover:bg-orange-600 group-hover:text-white",
+      hoverBorder: "hover:border-orange-500",
+      iconBg: "bg-orange-50 group-hover:bg-orange-600",
+      iconColor: "text-orange-600 group-hover:text-white",
       title: "group-hover:text-orange-700",
+      shadow: "hover:shadow-orange-100",
     },
   };
 
@@ -36,34 +38,41 @@ export const NavCard: React.FC<NavCardProps> = ({
   return (
     <a
       href={path}
-      rel="noopener noreferrer"
       className={`
-        group relative flex flex-col p-6 rounded-2xl
-        border border-gray-200 shadow-sm
-        transition-all duration-300 ease-out
-        hover:shadow-xl hover:-translate-y-1
-        ${activeStyle.bg}
+        group relative flex flex-col items-center justify-center text-center
+        h-64 w-full md:aspect-square p-8 rounded-3xl
+        bg-white border-2 border-transparent
+        shadow-sm transition-all duration-300 ease-out
+        hover:-translate-y-2 hover:shadow-2xl ${activeStyle.shadow}
+        ${activeStyle.hoverBorder}
       `}
     >
-      <div className="flex justify-between items-start mb-4">
-        <div
-          className={`p-3 rounded-xl transition-all duration-300 ${activeStyle.iconContainer}`}
-        >
-          <Icon size={28} strokeWidth={1.5} />
-        </div>
-        <ExternalLink
-          size={18}
-          className="text-gray-300 group-hover:text-gray-500 transition-colors"
-        />
+      <div
+        className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 
+        transition-opacity duration-300 transform translate-x-2 group-hover:translate-x-0"
+      >
+        <ArrowUpRight size={20} className="text-gray-400" />
       </div>
 
-      <div className="mt-2">
+      <div
+        className={`
+          mb-6 p-5 rounded-2xl transition-all duration-300 
+          transform group-hover:scale-110 group-hover:rotate-3
+          ${activeStyle.iconBg} ${activeStyle.iconColor}
+        `}
+      >
+        <Icon size={48} strokeWidth={1.5} />
+      </div>
+
+      <div>
         <h3
-          className={`text-xl font-bold text-gray-800 mb-2 transition-colors ${activeStyle.title}`}
+          className={`text-2xl font-bold text-gray-800 mb-3 transition-colors ${activeStyle.title}`}
         >
           {title}
         </h3>
-        <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
+        <p className="text-gray-500 text-sm leading-relaxed max-w-62.5 mx-auto">
+          {description}
+        </p>
       </div>
     </a>
   );

@@ -3,13 +3,13 @@ import { NavCard } from "../../components/NavCard/NavCard";
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl w-full">
-        <div className="mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 uppercase">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+      <div className="max-w-4xl w-full">
+        <div className="mb-12 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 uppercase tracking-tight">
             Portal de Operaciones
           </h1>
-          <p className="text-gray-500 mt-2">
+          <p className="text-gray-500 mt-3 text-lg">
             Selecciona el módulo al que deseas ingresar
           </p>
         </div>
