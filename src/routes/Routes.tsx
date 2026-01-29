@@ -4,6 +4,7 @@ import { Home } from "../pages/Home/Home";
 import { DashboardMaintenance } from "../pages/MaintenanceAdministrator/DashboardMaintenance";
 import { ToolingIndex } from "../pages/Tooling/ToolingIndex";
 import { DasboardTooling } from "../pages/ToolingAdministrator/DasboardTooling";
+import { MonthlyReportMaintenance } from "../pages/MaintenanceAdministrator/MonthlyReportMaintenance";
 
 export const MyRoutes = () => {
   return (
@@ -14,6 +15,11 @@ export const MyRoutes = () => {
       <Route
         path="/dasboard-mantenimiento-admin"
         element={<DashboardMaintenance />}
+      />
+
+      <Route
+        path="/reporte-mensual-mentenimiento"
+        element={<MonthlyReportMaintenance />}
       />
 
       <Route path="/herramentales" element={<ToolingIndex />} />
