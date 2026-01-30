@@ -14,7 +14,6 @@ export const MonthlyReportTooling = () => {
 
   const { reports, loading, error: listError } = useMonthlyReportsTooling();
 
-  console.log("Reportes: ", reports);
   const combinedError = listError || downloadError;
 
   const navigate = useNavigate();
