@@ -6,6 +6,7 @@ import { StatusBoard } from "../../components/StatusBoard/StatusBoard";
 import { EditTicketToolingModal } from "../../components/EditTicketToolingModal/EditTicketToolingModal";
 import { Toaster } from "react-hot-toast";
 import { Button } from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 export const DasboardTooling = () => {
   const { tickets, loading, refresh } = useTicketsTooling();
@@ -14,6 +15,8 @@ export const DasboardTooling = () => {
 
   const [selectedTicketId, setSelectedTicketId] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleCardClick = (ticketId: number) => {
     setSelectedTicketId(ticketId);
@@ -125,6 +128,7 @@ export const DasboardTooling = () => {
                 className="flex items-center gap-2"
                 variant="success"
                 size="md"
+                onClick={() => navigate("/reporte-mensual-tooling")}
               >
                 <FileText size={16} />
                 Reportes
