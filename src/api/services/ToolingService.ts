@@ -14,6 +14,8 @@ class ToolingService {
   private getToolingByIdEndpoint = API_CONFIG.endpoints.tooling.getToolingById;
   private getAvailableMontlyReportsEndpoint =
     API_CONFIG.endpoints.tooling.getAvailableMonthlyReports;
+  private downloadReportEndpoint =
+    API_CONFIG.endpoints.tooling.downloadMonthlyReport;
   private createEndpoint = API_CONFIG.endpoints.tooling.create;
   private updateEndpoint = API_CONFIG.endpoints.tooling.update;
 
@@ -29,6 +31,20 @@ class ToolingService {
     return apiClient.get<MonthlyReportItem[]>(
       this.getAvailableMontlyReportsEndpoint,
     );
+  }
+
+  async downloadReport(year: number, month: number): Promise<void> {
+    const endpoint = `${this.downloadReportEndpoint}?year=${year}&month=${month}`;
+
+    const monthName = new Date(year, month - 1).toLocaleString("es-Mx", {
+      month: "long",
+    });
+
+    const formmattedMonth =
+      monthName.charAt(0).toUpperCase() + monthName.slice(1);
+    const fileName = `Reporte_Mensuale_${formmattedMonth}_${year}.xlsx`;
+
+    return apiClient.downloadFile(endpoint, fileName);
   }
 
   async create(formData: Tooling): Promise<Response> {
