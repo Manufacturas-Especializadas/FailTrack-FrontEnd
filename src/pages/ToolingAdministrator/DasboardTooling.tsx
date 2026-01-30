@@ -1,10 +1,11 @@
-import { Activity, LayoutGrid } from "lucide-react";
+import { Activity, FileText, LayoutGrid } from "lucide-react";
 import { useTicketsTooling } from "../../hooks/useTicketsTooling";
 import { useState } from "react";
 import { useCurrentTime } from "../../hooks/useCurrentTime";
 import { StatusBoard } from "../../components/StatusBoard/StatusBoard";
 import { EditTicketToolingModal } from "../../components/EditTicketToolingModal/EditTicketToolingModal";
 import { Toaster } from "react-hot-toast";
+import { Button } from "../../components/Button/Button";
 
 export const DasboardTooling = () => {
   const { tickets, loading, refresh } = useTicketsTooling();
@@ -112,13 +113,27 @@ export const DasboardTooling = () => {
         </div>
       </header>
 
-      <main className="flex-1 overflow-hidden relative">
+      <main className="flex-1 overflow-hidden relative flex flex-col">
         {loading ? (
           <div className="flex h-full items-center justify-center text-gray-500 gap-2">
             <Activity className="animate-spin" /> Cargando datos...
           </div>
         ) : (
-          <StatusBoard tickets={tickets} onCardClick={handleCardClick} />
+          <>
+            <div className="px-6 pt-4 shrink-0 flex justify-end">
+              <Button
+                className="flex items-center gap-2"
+                variant="success"
+                size="md"
+              >
+                <FileText size={16} />
+                Reportes
+              </Button>
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <StatusBoard tickets={tickets} onCardClick={handleCardClick} />
+            </div>
+          </>
         )}
       </main>
 
