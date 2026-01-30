@@ -19,6 +19,8 @@ export const API_CONFIG = {
     tooling: {
       getToolingById: "/api/Tooling/GetTooling/",
       getToolingList: "/api/Tooling/GetToolingList",
+      getAvailableMonthlyReports: "/api/Tooling/GetAvailableMonthlyReports",
+      downloadMonthlyReport: "/api/Tooling/DownloadMonthlyReport",
       create: "/api/Tooling/Create",
       update: "/api/Tooling/Update/",
     },
