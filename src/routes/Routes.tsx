@@ -5,6 +5,7 @@ import { DashboardMaintenance } from "../pages/MaintenanceAdministrator/Dashboar
 import { ToolingIndex } from "../pages/Tooling/ToolingIndex";
 import { DasboardTooling } from "../pages/ToolingAdministrator/DasboardTooling";
 import { MonthlyReportMaintenance } from "../pages/MaintenanceAdministrator/MonthlyReportMaintenance";
+import { MonthlyReportTooling } from "../pages/ToolingAdministrator/MonthlyReportTooling";
 
 export const MyRoutes = () => {
   return (
@@ -25,6 +26,11 @@ export const MyRoutes = () => {
       <Route path="/herramentales" element={<ToolingIndex />} />
 
       <Route path="/dasboard-tooling-admin" element={<DasboardTooling />} />
+
+      <Route
+        path="/reporte-mensual-tooling"
+        element={<MonthlyReportTooling />}
+      />
     </Routes>
   );
 };
