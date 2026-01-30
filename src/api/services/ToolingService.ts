@@ -1,4 +1,5 @@
 import { API_CONFIG } from "../../config/api";
+import type { MonthlyReportItem } from "../../types/MonthlyReportItem";
 import type { TicketsTooling } from "../../types/TicketsTooling";
 import type { Tooling } from "../../types/Tooling";
 import { apiClient } from "../client";
@@ -11,6 +12,8 @@ interface Response {
 class ToolingService {
   private getToolingListEndpoint = API_CONFIG.endpoints.tooling.getToolingList;
   private getToolingByIdEndpoint = API_CONFIG.endpoints.tooling.getToolingById;
+  private getAvailableMontlyReportsEndpoint =
+    API_CONFIG.endpoints.tooling.getAvailableMonthlyReports;
   private createEndpoint = API_CONFIG.endpoints.tooling.create;
   private updateEndpoint = API_CONFIG.endpoints.tooling.update;
 
@@ -20,6 +23,12 @@ class ToolingService {
 
   async getToolingById(id: number): Promise<Tooling> {
     return apiClient.get(`${this.getToolingByIdEndpoint}${id}`);
+  }
+
+  async getAvailableMontlyReports(): Promise<MonthlyReportItem[]> {
+    return apiClient.get<MonthlyReportItem[]>(
+      this.getAvailableMontlyReportsEndpoint,
+    );
   }
 
   async create(formData: Tooling): Promise<Response> {
