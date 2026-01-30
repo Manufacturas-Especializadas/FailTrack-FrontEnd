@@ -42,7 +42,7 @@ class ToolingService {
 
     const formmattedMonth =
       monthName.charAt(0).toUpperCase() + monthName.slice(1);
-    const fileName = `Reporte_Mensuale_${formmattedMonth}_${year}.xlsx`;
+    const fileName = `Reporte_Mensual_${formmattedMonth}_${year}.xlsx`;
 
     return apiClient.downloadFile(endpoint, fileName);
   }
