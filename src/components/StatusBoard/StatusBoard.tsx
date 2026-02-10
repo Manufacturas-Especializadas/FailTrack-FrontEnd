@@ -92,10 +92,14 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
               <div className="flex items-center gap-1 text-gray-400 text-xs">
                 <Clock size={14} />
                 <time>
-                  {new Date(ticket.date).toLocaleDateString([], {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  <time className="font-mono">
+                    <time className="font-mono">
+                      {new Date(ticket.closingDate).toLocaleString("es-MX", {
+                        dateStyle: "short",
+                        timeStyle: "short",
+                      })}
+                    </time>
+                  </time>
                 </time>
               </div>
             </div>
