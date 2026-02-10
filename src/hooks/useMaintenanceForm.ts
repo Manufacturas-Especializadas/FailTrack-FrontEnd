@@ -23,7 +23,6 @@ const initialFormData: Maintenance = {
   idLine: 0,
   idMachine: 0,
   idStatus: 1,
-  updatedAt: "",
 };
 
 export const useMaintenanceForm = (
@@ -49,7 +48,6 @@ export const useMaintenanceForm = (
             idLine: response.idLine,
             idMachine: response.idMachine,
             idStatus: response.idStatus,
-            updatedAt: response.updatedAt,
           });
         } catch (err: any) {
           toast.error("Error al cargar los datos del registro");
