@@ -95,7 +95,7 @@ export const EditTicketModal = ({
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Reporte Técnico / Solución
+                  Reporte Técnico
                 </label>
                 <textarea
                   className="w-full rounded-lg border-gray-300 shadow-sm focus:outline-none 
