@@ -6,5 +6,4 @@ export interface Maintenance {
   idLine: number;
   idMachine: number;
   idStatus: number;
-  updatedAt: string;
 }
