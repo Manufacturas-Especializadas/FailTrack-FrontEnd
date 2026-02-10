@@ -18,10 +18,11 @@ interface UseMaintenanceFormReturn {
 const initialFormData: Maintenance = {
   applicantName: "",
   faultDescription: "",
+  failureDescription: "",
+  responsible: "",
   idLine: 0,
   idMachine: 0,
   idStatus: 1,
-  updatedAt: "",
 };
 
 export const useMaintenanceForm = (
@@ -42,10 +43,11 @@ export const useMaintenanceForm = (
           setFormData({
             applicantName: response.applicantName,
             faultDescription: response.faultDescription,
+            failureDescription: response.failureDescription,
+            responsible: response.responsible,
             idLine: response.idLine,
             idMachine: response.idMachine,
             idStatus: response.idStatus,
-            updatedAt: response.updatedAt,
           });
         } catch (err: any) {
           toast.error("Error al cargar los datos del registro");

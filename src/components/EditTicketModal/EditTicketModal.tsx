@@ -95,7 +95,7 @@ export const EditTicketModal = ({
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Reporte Técnico / Solución
+                  Reporte Técnico
                 </label>
                 <textarea
                   className="w-full rounded-lg border-gray-300 shadow-sm focus:outline-none 
@@ -104,6 +104,32 @@ export const EditTicketModal = ({
                   value={formData.faultDescription || ""}
                   onChange={(e) =>
                     handleChange("faultDescription", e.target.value)
+                  }
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  ¿Quien soluciono la falla?
+                </label>
+                <input
+                  type="text"
+                  className="w-full rounded-lg border-gray-300 shadow-sm focus:outline-none 
+                  focus:border-blue-500 focus:ring-blue-500 p-3 text-sm"
+                  value={formData.responsible || ""}
+                  onChange={(e) => handleChange("responsible", e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Solución de falla
+                </label>
+                <textarea
+                  className="w-full rounded-lg border-gray-300 shadow-sm focus:outline-none 
+                  focus:border-blue-500 focus:ring-blue-500 min-h-25 p-3 text-sm"
+                  value={formData.failureDescription || ""}
+                  onChange={(e) =>
+                    handleChange("failureDescription", e.target.value)
                   }
                 />
               </div>
