@@ -102,7 +102,7 @@ export const MaintenanceIndex = () => {
                   handleChange("idMachine", 0);
                 }}
                 options={[
-                  { value: "", label: "Seleccionar un turno" },
+                  { value: "", label: "Selecciona una linea" },
                   ...linesOptions,
                 ]}
                 required
