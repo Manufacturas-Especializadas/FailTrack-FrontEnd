@@ -6,4 +6,5 @@ export interface TicketsTooling {
   machineName: string;
   status: string;
   date: string;
+  closingDate: string;
 }
