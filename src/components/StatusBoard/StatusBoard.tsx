@@ -7,6 +7,7 @@ import {
   User,
 } from "lucide-react";
 import type { Ticket } from "../../types/Ticket";
+import { formatDateTime } from "../../utils/dateFormatter";
 
 const statusConfig = {
   Enviada: {
@@ -94,10 +95,7 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
                 <time>
                   <time className="font-mono">
                     <time className="font-mono">
-                      {new Date(ticket.closingDate).toLocaleString("es-MX", {
-                        dateStyle: "short",
-                        timeStyle: "short",
-                      })}
+                      {formatDateTime(ticket.closingDate)}
                     </time>
                   </time>
                 </time>
