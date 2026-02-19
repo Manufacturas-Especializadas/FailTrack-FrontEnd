@@ -95,7 +95,7 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
                 <time>
                   <time className="font-mono">
                     <time className="font-mono">
-                      {formatDateTime(ticket.closingDate)}
+                      {formatDateTime(ticket.closingDate ?? ticket.date)}
                     </time>
                   </time>
                 </time>

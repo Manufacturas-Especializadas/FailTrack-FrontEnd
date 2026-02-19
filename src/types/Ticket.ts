@@ -5,5 +5,6 @@ export interface Ticket {
   lineName: string;
   machineName: string;
   status: string;
+  date: string;
   closingDate: string;
 }
