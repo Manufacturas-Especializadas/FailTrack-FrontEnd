@@ -5,7 +5,6 @@ import { useMaintenanceForm } from "../../hooks/useMaintenanceForm";
 import FormButton from "../../Inputs/FormButton";
 import InputField from "../../Inputs/InputField";
 import SelectField from "../../Inputs/SelectField";
-import { Toaster } from "react-hot-toast";
 import { useMachineByLine } from "../../hooks/useMachinesByLine";
 
 export const MaintenanceIndex = () => {
@@ -39,40 +38,6 @@ export const MaintenanceIndex = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-4 pb-20 px-4 sm:px-6 lg:px-8">
-      <Toaster
-        toastOptions={{
-          className: "",
-          style: {
-            background: "#363636",
-            color: "#fff",
-            zIndex: 9999,
-          },
-          success: {
-            duration: 10000,
-            position: "top-right",
-            style: {
-              background: "#10B981",
-              color: "#fff",
-            },
-          },
-          error: {
-            duration: 5000,
-            position: "top-right",
-            style: {
-              background: "#EF4444",
-              color: "#fff",
-            },
-          },
-          loading: {
-            duration: Infinity,
-            position: "top-right",
-            style: {
-              background: "#3B82F6",
-              color: "#fff",
-            },
-          },
-        }}
-      />
       <div className="max-w-2xl mx-auto space-y-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 uppercase">
