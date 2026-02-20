@@ -5,6 +5,7 @@ import { Save, X } from "lucide-react";
 import SelectField from "../../Inputs/SelectField";
 import InputField from "../../Inputs/InputField";
 import { useStatus } from "../../hooks/useStatus";
+import { TextareaField } from "../../Inputs/TextareaField";
 
 interface Props {
   isOpen: boolean;
@@ -75,6 +76,17 @@ export const EditTicketModal = ({
                 options={lines.map((l) => ({ value: l.id, label: l.lineName }))}
                 disabled
               />
+
+              <div className="w-full md:col-span-2">
+                <TextareaField
+                  label="Descripción de falla"
+                  value={formData.lineFaultDescription}
+                  onChange={(e) =>
+                    handleChange("lineFaultDescription", e.target.value)
+                  }
+                  disabled
+                />
+              </div>
             </div>
 
             <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-4">

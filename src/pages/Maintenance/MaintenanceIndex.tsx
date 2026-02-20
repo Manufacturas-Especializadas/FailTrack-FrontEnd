@@ -6,6 +6,7 @@ import FormButton from "../../Inputs/FormButton";
 import InputField from "../../Inputs/InputField";
 import SelectField from "../../Inputs/SelectField";
 import { useMachineByLine } from "../../hooks/useMachinesByLine";
+import { TextareaField } from "../../Inputs/TextareaField";
 
 export const MaintenanceIndex = () => {
   const { lines, loading: linesLoading, error: errorLines } = useLines();
@@ -90,6 +91,14 @@ export const MaintenanceIndex = () => {
                   machineLoading || !formData.idLine || formData.idLine === 0
                 }
                 error={undefined}
+              />
+
+              <TextareaField
+                label="Descripción de falla"
+                value={formData.lineFaultDescription || ""}
+                onChange={(e) =>
+                  handleChange("lineFaultDescription", e.target.value)
+                }
               />
 
               <div className="flex gap-2 pt-4">

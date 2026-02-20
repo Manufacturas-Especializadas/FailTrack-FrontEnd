@@ -80,6 +80,9 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
               </div>
             </div>
 
+            <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+              {ticket.descriptionLine}
+            </p>
             <p className="text-gray-800 text-lg font-medium leading-snug mb-4">
               {ticket.description}
             </p>
