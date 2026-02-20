@@ -65,42 +65,51 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
             key={ticket.id}
             onClick={() => onCardClick(ticket.id)}
             className={`cursor-pointer relative p-5 rounded-xl border-l-4 shadow-sm bg-white 
-              hover:shadow-md transition-shadow duration-300 active:scale-[0.98]
-              ${config.color.replace("bg-", "border-l-")} 
-              border-y border-r border-gray-200`}
+      hover:shadow-md transition-all duration-300 active:scale-[0.98]
+      ${config.color.replace("bg-", "border-l-")} 
+      border-y border-r border-gray-200`}
           >
-            <div className="flex justify-between items-start mb-3">
-              <div className="flex items-center gap-2 text-gray-700 font-bold text-lg">
-                <Settings size={18} className="text-gray-400" />
-                <span>{ticket.lineName}</span>
+            {/* HEADER */}
+            <div className="flex justify-between items-start mb-2">
+              <div className="flex items-center gap-2 text-gray-700 font-bold text-lg min-w-0">
+                <Settings size={18} className="text-gray-400 shrink-0" />
+                <span className="truncate">{ticket.lineName}</span>
                 <span className="text-gray-300">|</span>
-                <span className="text-xs font-mono text-gray-400">
+                <span className="text-xs font-mono text-gray-400 truncate">
                   {ticket.machineName}
                 </span>
               </div>
             </div>
 
-            <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+            {/* DESCRIPCIÓN CORTA DE LÍNEA */}
+            <p
+              className="text-sm text-gray-600 line-clamp-2 mb-3"
+              title={ticket.descriptionLine}
+            >
               {ticket.descriptionLine}
             </p>
-            <p className="text-gray-800 text-lg font-medium leading-snug mb-4">
+
+            {/* DESCRIPCIÓN PRINCIPAL */}
+            <p
+              className="text-gray-800 text-base font-medium leading-snug mb-4 line-clamp-2"
+              title={ticket.description}
+            >
               {ticket.description}
             </p>
 
+            {/* FOOTER */}
             <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-2">
-              <div className="flex items-center gap-2 text-gray-500 text-sm">
+              <div className="flex items-center gap-2 text-gray-500 text-sm min-w-0">
                 <User size={16} />
-                <span className="font-medium">{ticket.applicantName}</span>
+                <span className="font-medium truncate">
+                  {ticket.applicantName}
+                </span>
               </div>
 
-              <div className="flex items-center gap-1 text-gray-400 text-xs">
+              <div className="flex items-center gap-1 text-gray-400 text-xs shrink-0">
                 <Clock size={14} />
-                <time>
-                  <time className="font-mono">
-                    <time className="font-mono">
-                      {formatDateTime(ticket.closingDate ?? ticket.date)}
-                    </time>
-                  </time>
+                <time className="font-mono">
+                  {formatDateTime(ticket.closingDate ?? ticket.date)}
                 </time>
               </div>
             </div>
