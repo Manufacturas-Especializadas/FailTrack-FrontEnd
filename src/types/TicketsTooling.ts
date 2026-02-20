@@ -4,6 +4,7 @@ export interface TicketsTooling {
   description: string;
   lineName: string;
   machineName: string;
+  descriptionLine: string;
   status: string;
   date: string;
   closingDate: string;
