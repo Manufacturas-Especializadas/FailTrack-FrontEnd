@@ -81,7 +81,6 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
               </div>
             </div>
 
-            {/* DESCRIPCIÓN CORTA DE LÍNEA */}
             <p
               className="text-sm text-gray-600 line-clamp-2 mb-3"
               title={ticket.descriptionLine}
@@ -89,7 +88,6 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
               {ticket.descriptionLine}
             </p>
 
-            {/* DESCRIPCIÓN PRINCIPAL */}
             <p
               className="text-gray-800 text-base font-medium leading-snug mb-4 line-clamp-2"
               title={ticket.description}
@@ -97,7 +95,6 @@ const StatusColumn = ({ status, tickets, onCardClick }: StatusColumnProps) => {
               {ticket.description}
             </p>
 
-            {/* FOOTER */}
             <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-2">
               <div className="flex items-center gap-2 text-gray-500 text-sm min-w-0">
                 <User size={16} />
