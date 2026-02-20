@@ -18,6 +18,8 @@ interface UseToolingFormReturn {
 const initialFormData: Tooling = {
   applicantName: "",
   faultDescription: "",
+  failureDescription: "",
+  responsible: "",
   idLine: 0,
   idMachine: 0,
   idStatus: 1,
@@ -43,6 +45,8 @@ export const useToolingForm = (
           setFormData({
             applicantName: response.applicantName,
             faultDescription: response.faultDescription,
+            failureDescription: response.failureDescription,
+            responsible: response.responsible,
             idLine: response.idLine,
             idMachine: response.idMachine,
             idStatus: response.idStatus,
