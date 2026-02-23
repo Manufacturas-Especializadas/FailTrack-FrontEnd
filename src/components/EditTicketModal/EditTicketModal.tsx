@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useLines } from "../../hooks/useLines";
-import { useMaintenanceForm } from "../../hooks/useMaintenanceForm";
 import { Save, X } from "lucide-react";
 import SelectField from "../../Inputs/SelectField";
 import InputField from "../../Inputs/InputField";
 import { useStatus } from "../../hooks/useStatus";
 import { TextareaField } from "../../Inputs/TextareaField";
+import { useMaintenanceForm } from "../../hooks/useMaintenanceForm";
 
 interface Props {
   isOpen: boolean;
@@ -139,9 +139,9 @@ export const EditTicketModal = ({
                 <textarea
                   className="w-full rounded-lg border-gray-300 shadow-sm focus:outline-none 
                   focus:border-blue-500 focus:ring-blue-500 min-h-25 p-3 text-sm"
-                  value={formData.failureDescription || ""}
+                  value={formData.failureSolution || ""}
                   onChange={(e) =>
-                    handleChange("failureDescription", e.target.value)
+                    handleChange("failureSolution", e.target.value)
                   }
                 />
               </div>
