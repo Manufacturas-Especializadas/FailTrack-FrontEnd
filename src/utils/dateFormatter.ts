@@ -4,7 +4,14 @@ export const formatDateTime = (
 ): string => {
   if (!date) return "";
 
-  const parsedDate = typeof date === "string" ? new Date(date) : date;
+  let parsedDate: Date;
+
+  if (typeof date === "string") {
+    const cleanDate = date.includes("+") ? date.split("+")[0] : date;
+    parsedDate = new Date(cleanDate);
+  } else {
+    parsedDate = date;
+  }
 
   return new Intl.DateTimeFormat(local, {
     year: "numeric",
@@ -13,5 +20,6 @@ export const formatDateTime = (
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
+    hour12: true,
   }).format(parsedDate);
 };
