@@ -99,6 +99,7 @@ export const MaintenanceIndex = () => {
                 onChange={(e) =>
                   handleChange("lineFaultDescription", e.target.value)
                 }
+                required
               />
 
               <div className="flex gap-2 pt-4">
