@@ -34,7 +34,7 @@ export const DashboardMaintenance = () => {
 
   return (
     <div className="h-screen flex flex-col bg-gray-100 overflow-hidden">
-      <header className="bg-[#0099cc] text-white shadow-sm z-10 shrink-0">
+      <header className="bg-white text-black shadow-sm z-10 shrink-0">
         <div className="px-6 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
@@ -44,7 +44,7 @@ export const DashboardMaintenance = () => {
               <h1 className="text-xl font-bold tracking-tight uppercase">
                 Monitor de mantenimiento
               </h1>
-              <div className="flex items-center gap-2 text-blue-100 text-xs font-medium">
+              <div className="flex items-center gap-2 text-gray-800 text-xs font-medium">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -60,7 +60,7 @@ export const DashboardMaintenance = () => {
                 <span className="block font-bold text-lg leading-none">
                   {tickets.length}
                 </span>
-                <span className="text-blue-100">Solicitudes</span>
+                <span className="text-gray-800">Solicitudes</span>
               </div>
             </div>
 
@@ -68,7 +68,7 @@ export const DashboardMaintenance = () => {
               <div className="text-3xl font-mono font-bold leading-none tracking-wider">
                 {currentTime}
               </div>
-              <p className="text-blue-100">
+              <p className="text-gray-800">
                 {new Date().toLocaleDateString([], {
                   day: "numeric",
                   month: "long",

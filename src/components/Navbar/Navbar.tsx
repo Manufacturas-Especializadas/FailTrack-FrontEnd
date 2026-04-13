@@ -1,22 +1,25 @@
-import { Link } from "react-router-dom";
 import Logo from "../../assets/images/logomesa.png";
 
 export const Navbar = () => {
   return (
-    <nav className="bg-primary shadow-lg sticky top-0 z-50">
+    <nav
+      className="sticky top-0 z-50 w-full bg-white/80 
+      backdrop-blur-md border-b border-slate-200"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center">
-            <div className="flex items-center hover:cursor-pointer">
-              <img src={Logo} alt="MESA" className="h-10 w-auto lg:h-12" />
-              <div className="ml-3">
-                <Link to="/">
-                  <h1 className="text-xl lg:text-2xl font-bold text-white uppercase">
-                    FailTrack
-                  </h1>
-                </Link>
-              </div>
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center gap-4 group cursor-default">
+            <div className="p-1 rounded-lg transition-colors group-hover:bg-slate-50">
+              <img
+                src={Logo}
+                alt="MESA logo"
+                className="h-9 w-auto object-contain"
+              />
             </div>
+            <div className="hidden md:block h-6 w-px bg-slate-200" />{" "}
+            <h1 className="text-lg font-semibold tracking-tight text-slate-800">
+              FAIL<span className="text-blue-600">TRACK</span>
+            </h1>
           </div>
         </div>
       </div>
