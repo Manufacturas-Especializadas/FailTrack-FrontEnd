@@ -1,6 +1,7 @@
 import { API_CONFIG } from "../../config/api";
 import type { Maintenance } from "../../types/Maintenance";
 import type { MonthlyReportItem } from "../../types/MonthlyReportItem";
+import type { Reports } from "../../types/MyReports";
 import type { Ticket } from "../../types/Ticket";
 import { apiClient } from "../client";
 
@@ -10,6 +11,7 @@ export interface ApiResponse {
 }
 
 class MaintenanceService {
+  private getMyReportsEndpoint = API_CONFIG.endpoints.maintenance.getMyReports;
   private getMaintenanceListEndpoint =
     API_CONFIG.endpoints.maintenance.getMaintenanceList;
   private getMaintenanceByIdEndpoint =
@@ -20,6 +22,10 @@ class MaintenanceService {
     API_CONFIG.endpoints.maintenance.downloadMonthlyReport;
   private createEndpoint = API_CONFIG.endpoints.maintenance.create;
   private updateEndpoint = API_CONFIG.endpoints.maintenance.update;
+
+  async getMyReports(): Promise<Reports[]> {
+    return apiClient.get<Reports[]>(this.getMyReportsEndpoint);
+  }
 
   async getMaintenanceList(): Promise<Ticket[]> {
     return apiClient.get<Ticket[]>(this.getMaintenanceListEndpoint);
