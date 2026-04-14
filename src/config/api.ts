@@ -13,6 +13,7 @@ export const API_CONFIG = {
       login: "/api/Auth/login",
     },
     maintenance: {
+      getMyReports: "/api/Maintenance/GetMyReports",
       getMaintenanceList: "/api/Maintenance/GetMaintenanceList",
       getMaintenanceById: "/api/Maintenance/GetMaintenanceById/",
       getAvailableMonthlyReports: "/api/Maintenance/GetAvailableMonthlyReports",
