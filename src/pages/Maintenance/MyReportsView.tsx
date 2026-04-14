@@ -4,7 +4,6 @@ import {
   Calendar,
   CheckCircle2,
   Clock,
-  User,
   ChevronRight,
   ChevronLeft,
   ArrowRight,
