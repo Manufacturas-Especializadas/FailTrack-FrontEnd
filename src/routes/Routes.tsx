@@ -6,11 +6,14 @@ import { ToolingIndex } from "../pages/Tooling/ToolingIndex";
 import { DasboardTooling } from "../pages/ToolingAdministrator/DasboardTooling";
 import { MonthlyReportMaintenance } from "../pages/MaintenanceAdministrator/MonthlyReportMaintenance";
 import { MonthlyReportTooling } from "../pages/ToolingAdministrator/MonthlyReportTooling";
+import { Login } from "../pages/Auth/Login";
 
 export const MyRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+
+      <Route path="/login" element={<Login />} />
       <Route path="/mantenimiento" element={<MaintenanceIndex />} />
 
       <Route
