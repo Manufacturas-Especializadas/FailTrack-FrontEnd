@@ -5,12 +5,23 @@ import {
   CheckCircle2,
   Clock,
   User,
+  ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import { useMyReports } from "../../hooks/useMyReports";
 import { useNavigate } from "react-router-dom";
 
 export const MyReportsView = () => {
-  const { reports, loading, searchTerm, setSearchTerm } = useMyReports();
+  const {
+    reports,
+    loading,
+    searchTerm,
+    setSearchTerm,
+    currentPage,
+    setCurrentPage,
+    totalPages,
+    totalCount,
+  } = useMyReports();
   const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-slate-50 pt-8 pb-20 px-4 sm:px-6 lg:px-8">
@@ -141,6 +152,56 @@ export const MyReportsView = () => {
                   ))}
                 </tbody>
               </table>
+              <div className="px-6 py-4 bg-slate-50/50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-sm text-slate-500 font-medium">
+                  Mostrando{" "}
+                  <span className="text-slate-900">{reports.length}</span> de{" "}
+                  <span className="text-slate-900">{totalCount}</span>{" "}
+                  resultados
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.max(prev - 1, 1))
+                    }
+                    disabled={currentPage === 1 || loading}
+                    className="p-2 rounded-lg border border-slate-200 bg-white 
+                    hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed 
+                    transition-all hover:cursor-pointer"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-slate-600" />
+                  </button>
+
+                  <div className="flex items-center gap-1">
+                    {[...Array(totalPages)].map((_, i) => (
+                      <button
+                        key={i + 1}
+                        onClick={() => setCurrentPage(i + 1)}
+                        className={`w-9 h-9 rounded-lg text-sm font-bold transition-all hover:cursor-pointer ${
+                          currentPage === i + 1
+                            ? "bg-blue-600 text-white shadow-md shadow-blue-200"
+                            : "bg-white border border-slate-200 text-slate-600 hover:border-blue-300"
+                        }`}
+                      >
+                        {i + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() =>
+                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    }
+                    disabled={currentPage === totalPages || loading}
+                    className="p-2 rounded-lg border border-slate-200 bg-white 
+                    hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed 
+                    transition-all hover:cursor-pointer"
+                  >
+                    <ChevronRight className="w-5 h-5 text-slate-600" />
+                  </button>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="p-20 text-center">

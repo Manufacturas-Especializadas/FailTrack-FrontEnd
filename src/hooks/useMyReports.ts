@@ -8,6 +8,9 @@ export const useMyReports = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10;
+
   const fetchReports = async () => {
     setLoading(true);
     try {
@@ -28,16 +31,30 @@ export const useMyReports = () => {
     return reports.filter(
       (report) =>
         report.machine.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        report.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         report.id.toString().includes(searchTerm),
     );
   }, [reports, searchTerm]);
 
+  const totalPages = Math.ceil(filteredReports.length / rowsPerPage);
+
+  const paginatedReports = useMemo(() => {
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    return filteredReports.slice(startIndex, startIndex + rowsPerPage);
+  }, [filteredReports, currentPage, rowsPerPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
   return {
-    reports: filteredReports,
+    reports: paginatedReports,
+    totalCount: filteredReports.length,
     loading,
     searchTerm,
     setSearchTerm,
+    currentPage,
+    setCurrentPage,
+    totalPages,
     refresh: fetchReports,
   };
 };
