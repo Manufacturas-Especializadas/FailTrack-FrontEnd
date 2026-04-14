@@ -7,11 +7,15 @@ import {
   User,
   ChevronRight,
   ChevronLeft,
+  ArrowRight,
+  Lock,
 } from "lucide-react";
 import { useMyReports } from "../../hooks/useMyReports";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
 
 export const MyReportsView = () => {
+  const { isAuthenticated } = useAuthContext();
   const {
     reports,
     loading,
@@ -23,6 +27,49 @@ export const MyReportsView = () => {
     totalCount,
   } = useMyReports();
   const navigate = useNavigate();
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-[80vh] flex items-center justify-center px-4">
+        <div
+          className="max-w-md w-full text-center space-y-6 bg-white p-10 
+          rounded-3xl shadow-xl border border-slate-100"
+        >
+          <div
+            className="bg-amber-50 w-20 h-20 rounded-2xl flex items-center 
+            justify-center mx-auto mb-6"
+          >
+            <Lock className="w-10 h-10 text-amber-500" />
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-2xl font-bold text-slate-900">
+              Acceso Restringido
+            </h2>
+            <p className="text-slate-500">
+              Para consultar el historial de reportes, es necesario
+              identificarse con el usuario de su línea de producción.
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate("/login")}
+            className="w-full flex items-center justify-center gap-2 py-3.5 bg-blue-600 
+            text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg 
+            shadow-blue-100 group hover:cursor-pointer"
+          >
+            <span>Ir al inicio de sesión</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          <p className="text-xs text-slate-400">
+            MesaCore FailTrack v1.0 • Sistema Interno
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 pt-8 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-6">
