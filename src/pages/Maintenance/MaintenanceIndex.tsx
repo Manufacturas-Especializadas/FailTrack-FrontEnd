@@ -7,9 +7,11 @@ import SelectField from "../../Inputs/SelectField";
 import { useMachineByLine } from "../../hooks/useMachinesByLine";
 import { TextareaField } from "../../Inputs/TextareaField";
 import { useMaintenanceForm } from "../../hooks/useMaintenanceForm";
+import { ClipboardList } from "lucide-react"; // Importamos un icono descriptivo
 
 export const MaintenanceIndex = () => {
   const { lines, loading: linesLoading, error: errorLines } = useLines();
+  const navigate = useNavigate();
 
   const {
     loading: formLoading,
@@ -22,8 +24,6 @@ export const MaintenanceIndex = () => {
   const { machines, loading: machineLoading } = useMachineByLine(
     formData.idLine,
   );
-
-  const navigate = useNavigate();
 
   const isLoading = formLoading || linesLoading;
 
@@ -40,13 +40,26 @@ export const MaintenanceIndex = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-4 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900 uppercase">
-            Registro de mantenimiento
-          </h1>
-          <p className="text-gray-500 text-sm mt-1">
-            Completa la información para generar un reporte
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">
+              Registro de mantenimiento
+            </h1>
+            <p className="text-gray-500 text-sm mt-1">
+              Completa la información para generar un reporte
+            </p>
+          </div>
+
+          <button
+            onClick={() => navigate("/mis-solicitudes")}
+            className="flex items-center justify-center gap-2 px-4 py-2.5 bg-white 
+            border border-slate-200 text-slate-700 font-semibold rounded-xl shadow-sm 
+            hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group
+            hover:cursor-pointer"
+          >
+            <ClipboardList className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+            <span>Mis Reportes</span>
+          </button>
         </div>
 
         <FormCard title="Reporte de falla">
@@ -106,7 +119,11 @@ export const MaintenanceIndex = () => {
                 <FormButton variant="secondary" onClick={() => navigate("/")}>
                   Cancelar
                 </FormButton>
-                <FormButton variant="primary" type="submit">
+                <FormButton
+                  variant="primary"
+                  type="submit"
+                  disabled={isLoading}
+                >
                   {isEditing ? "Actualizar registro" : "Guardar registro"}
                 </FormButton>
               </div>
