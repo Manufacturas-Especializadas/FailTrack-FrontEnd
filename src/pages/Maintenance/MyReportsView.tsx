@@ -160,11 +160,11 @@ export const MyReportsView = () => {
                           {report.line}
                         </div>
                       </td>
-                      {/* <td className="px-6 py-4">
+                      <td className="px-6 py-4">
                         <p className="text-sm text-slate-600 line-clamp-2 max-w-xs">
                           {report.lineDescription || report.description}
                         </p>
-                      </td> */}
+                      </td>
                       <td className="px-6 py-4">
                         {report.closingDate ? (
                           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
@@ -178,7 +178,7 @@ export const MyReportsView = () => {
                           </span>
                         )}
                       </td>
-                      <td className="px-6 py-4">
+                      {/* <td className="px-6 py-4">
                         {report.reponsible ? (
                           <div className="space-y-1">
                             <div className="text-xs font-medium text-slate-700 flex items-center gap-1">
@@ -194,7 +194,7 @@ export const MyReportsView = () => {
                             Asignación pendiente...
                           </span>
                         )}
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>
