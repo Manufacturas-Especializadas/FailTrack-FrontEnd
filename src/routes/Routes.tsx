@@ -7,6 +7,7 @@ import { DasboardTooling } from "../pages/ToolingAdministrator/DasboardTooling";
 import { MonthlyReportMaintenance } from "../pages/MaintenanceAdministrator/MonthlyReportMaintenance";
 import { MonthlyReportTooling } from "../pages/ToolingAdministrator/MonthlyReportTooling";
 import { Login } from "../pages/Auth/Login";
+import { MyReportsView } from "../pages/Maintenance/MyReportsView";
 
 export const MyRoutes = () => {
   return (
@@ -15,7 +16,7 @@ export const MyRoutes = () => {
 
       <Route path="/login" element={<Login />} />
       <Route path="/mantenimiento" element={<MaintenanceIndex />} />
-
+      <Route path="/mis-solicitudes" element={<MyReportsView />} />
       <Route
         path="/dasboard-mantenimiento-admin"
         element={<DashboardMaintenance />}
